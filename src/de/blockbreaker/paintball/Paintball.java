@@ -33,6 +33,9 @@ public class Paintball extends JavaPlugin{
         //GameState:
         GameState.setState(IN_LOBBY);
 
+        //Instance:
+        instance = this;
+
         //Konsolenausgabe:
         System.out.println(" =-=-=-=-=-=-=-=-=-=-=-=");
         System.out.println(Data.Prefix + ChatColor.GREEN + "Erfolgreich geladen!");
