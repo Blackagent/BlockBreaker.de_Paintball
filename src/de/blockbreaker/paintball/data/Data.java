@@ -12,4 +12,5 @@ public class Data {
     public static String BlockBreaker = ChatColor.DARK_GRAY + "[" + ChatColor.DARK_GREEN + "by BlockBreaker.de" + ChatColor.DARK_GRAY + "]";
     public static int counter = 60;
     //TODO: Prefix Farben Kacke xD
+    //TODO: Liste players
 }

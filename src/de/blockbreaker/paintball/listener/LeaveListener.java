@@ -15,6 +15,7 @@ public class LeaveListener {
     public void onQuit(PlayerQuitEvent e) {
 
         Bukkit.broadcastMessage(Data.Prefix + ChatColor.RED + "<-- " + ChatColor.YELLOW + e.getPlayer().getName() + ChatColor.AQUA + " hat das Spiel " + ChatColor.RED + "verlassen");
+        //TODO: von listen removen
     }
 
 }
