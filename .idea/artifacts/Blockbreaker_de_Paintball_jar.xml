@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Blockbreaker.de_Paintball:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Blockbreaker_de_Paintball_jar</output-path>
+    <root id="archive" name="Blockbreaker.de_Paintball.jar">
+      <element id="module-output" name="Blockbreaker.de_Paintball" />
+    </root>
+  </artifact>
+</component>
