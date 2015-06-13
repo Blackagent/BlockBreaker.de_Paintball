@@ -19,7 +19,7 @@ import org.bukkit.event.player.PlayerLoginEvent;
 /**
  * Created by Janne on 01.06.2015.
  */
-public class JoinListener implements Listener{
+public class JoinListener implements Listener {
 
     private Paintball plugin;
 
