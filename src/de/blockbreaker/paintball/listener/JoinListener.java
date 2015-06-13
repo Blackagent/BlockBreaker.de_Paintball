@@ -21,6 +21,8 @@ public class JoinListener implements Listener{
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
 
+        e.setJoinMessage(null);
+
         //In der Lobby:
         if(GameState.isState(GameState.IN_LOBBY)) {
             Bukkit.getOnlinePlayers().forEach(player -> player.setExp(0));
