@@ -1,6 +1,7 @@
 package de.blockbreaker.paintball.listener;
 
 import de.blockbreaker.paintball.Paintball;
+import de.blockbreaker.paintball.data.Config;
 import de.blockbreaker.paintball.data.Countdown;
 import de.blockbreaker.paintball.data.Data;
 import de.blockbreaker.paintball.data.GameState;
@@ -36,7 +37,10 @@ public class JoinListener implements Listener{
                 Countdown.startCountdown();
             }
 
-            //zur Liste adden
+            //zu Spielern adden, wenn noch Platz ist:
+            if(Data.players.size() < Config.cfg.getInt("maxPlayer")) {//TODO: @ Lukas knan ich das so machen?!?!?!?!
+                Data.players.add(e.getPlayer());
+            }
         }
 
         //Im Spiel:

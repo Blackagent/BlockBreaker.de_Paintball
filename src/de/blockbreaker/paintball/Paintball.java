@@ -4,6 +4,7 @@ import de.blockbreaker.paintball.data.Config;
 import de.blockbreaker.paintball.data.Data;
 import de.blockbreaker.paintball.data.GameState;
 import de.blockbreaker.paintball.data.RegisterUtil;
+import de.blockbreaker.paintball.listener.InteractListener;
 import de.blockbreaker.paintball.listener.JoinListener;
 import de.blockbreaker.paintball.listener.LeaveListener;
 import org.bukkit.ChatColor;
@@ -25,7 +26,7 @@ public class Paintball extends JavaPlugin{
         //Events Registrieren:
         RegisterUtil<Paintball> register = new RegisterUtil<Paintball>(this);
 
-        register.registerEvents(JoinListener.class, LeaveListener.class);//TODO: LUKAS der leave listener kann laut konsole nich gecastet werden (Register Util Zeile 49)
+        register.registerEvents(JoinListener.class, LeaveListener.class, InteractListener.class);
 
         //Config erstellen:
         Config.createConfig();
