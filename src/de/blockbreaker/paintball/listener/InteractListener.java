@@ -2,6 +2,8 @@ package de.blockbreaker.paintball.listener;
 
 import de.blockbreaker.paintball.data.Config;
 import de.blockbreaker.paintball.data.Data;
+import de.blockbreaker.paintball.inventory.Inv;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -25,6 +27,7 @@ public class InteractListener implements Listener{
             if(e.getMaterial().equals(Material.BLAZE_ROD)) {
                 if(Data.players.size() > 4) {
                     Data.players.remove(p);
+                    Bukkit.getOnlinePlayers().forEach(player -> Inv.getStandartInventory(player));
                     p.sendMessage(Data.Prefix + ChatColor.BLUE + "Du bist nun " + ChatColor.DARK_GRAY + "Zuschauer");
                 } else {
                     p.sendMessage(Data.Prefix + ChatColor.BLUE + "Du kannst leider nicht wechseln, da es sonst " + ChatColor.DARK_BLUE + "zu wenig Spieler" + ChatColor.BLUE + " gibt!");
@@ -35,6 +38,7 @@ public class InteractListener implements Listener{
             if(e.getMaterial().equals(Material.STICK)) {
                 if(Data.players.size() < Config.cfg.getInt("maxPlayer")) {
                     Data.players.add(p);
+                    Bukkit.getOnlinePlayers().forEach(player -> Inv.getStandartInventory(player));
                     p.sendMessage(Data.Prefix + ChatColor.BLUE + "Du bist nun " + ChatColor.YELLOW + "Spieler");
                 }
                 else {
