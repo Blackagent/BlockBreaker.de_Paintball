@@ -17,15 +17,17 @@ public class InteractListener implements Listener{
 
     @EventHandler
     public void onInteract(PlayerInteractEvent e) {
+        Player p = e.getPlayer();
 
         if(e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
-            Player p = e.getPlayer();
 
             //von Spielern zu Zuschauern wechseln
             if(e.getMaterial().equals(Material.BLAZE_ROD)) {
                 if(Data.players.size() > 4) {
                     Data.players.remove(p);
                     p.sendMessage(Data.Prefix + ChatColor.BLUE + "Du bist nun " + ChatColor.DARK_GRAY + "Zuschauer");
+                } else {
+                    p.sendMessage(Data.Prefix + ChatColor.BLUE + "Du kannst leider nicht wechseln, da es sonst " + ChatColor.DARK_BLUE + "zu wenig Spieler" + ChatColor.BLUE + " gibt!");
                 }
             }
 
@@ -34,6 +36,9 @@ public class InteractListener implements Listener{
                 if(Data.players.size() < Config.cfg.getInt("maxPlayer")) {
                     Data.players.add(p);
                     p.sendMessage(Data.Prefix + ChatColor.BLUE + "Du bist nun " + ChatColor.YELLOW + "Spieler");
+                }
+                else {
+                    p.sendMessage(Data.Prefix + ChatColor.BLUE + "Du kannst leider nicht wechseln, da schon " + ChatColor.DARK_BLUE + "alle Plätze belegt " + ChatColor.BLUE + " sind!");
                 }
             }
         }
