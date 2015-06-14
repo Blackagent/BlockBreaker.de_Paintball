@@ -25,7 +25,7 @@ public class Config {
         if(!file.exists()) {
 
             cfg.set("map", "-");
-            cfg.set("maxPlayer", "8");
+            cfg.set("maxPlayer", 8);
 
             try {
                 cfg.save(file);
