@@ -5,6 +5,7 @@ import de.blockbreaker.paintball.data.Config;
 import de.blockbreaker.paintball.data.Countdown;
 import de.blockbreaker.paintball.data.Data;
 import de.blockbreaker.paintball.data.GameState;
+import de.blockbreaker.paintball.inventory.Inv;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
@@ -38,9 +39,10 @@ public class JoinListener implements Listener{
             }
 
             //zu Spielern adden, wenn noch Platz ist:
-            if(Data.players.size() < Config.cfg.getInt("maxPlayer")) {//TODO: @ Lukas knan ich das so machen?!?!?!?!
+            if(Data.players.size() < Config.cfg.getInt("maxPlayer")) {
                 Data.players.add(e.getPlayer());
             }
+            Bukkit.getOnlinePlayers().forEach(player -> Inv.getStandartInventory(player));
         }
 
         //Im Spiel:

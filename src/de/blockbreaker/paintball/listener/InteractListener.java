@@ -31,7 +31,7 @@ public class InteractListener implements Listener{
 
             //Von Zuschauern zu Spielern wechseln
             if(e.getMaterial().equals(Material.STICK)) {
-                if(Data.players.size() < Config.cfg.getInt("maxPlayer")) {//TODO: Geht das so ?!?!?!
+                if(Data.players.size() < Config.cfg.getInt("maxPlayer")) {
                     Data.players.add(p);
                     p.sendMessage(Data.Prefix + ChatColor.BLUE + "Du bist nun " + ChatColor.YELLOW + "Spieler");
                 }

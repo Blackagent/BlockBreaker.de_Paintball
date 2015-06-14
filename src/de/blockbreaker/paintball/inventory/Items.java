@@ -7,6 +7,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -23,11 +24,11 @@ public class Items {
             ItemStack switchItem = new ItemStack(Material.BLAZE_ROD);
             ItemMeta meta = switchItem.getItemMeta();
 
-            meta.setDisplayName(ChatColor.BLUE + "Du bist " + ChatColor.YELLOW + "Spieler");
+            meta.setDisplayName(ChatColor.RED + "Rechtsklick," + ChatColor.BLUE + " um zu den " + ChatColor.DARK_GRAY + "Zuschauern" + ChatColor.BLUE + "  zu wechseln");
+            meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 
             ArrayList<String> lore = new ArrayList<>();
-            lore.add(ChatColor.RED + "Rechtsklick" + ChatColor.BLUE + ", um zu den");
-            lore.add(ChatColor.DARK_GRAY + "Zuschauern" + ChatColor.BLUE + " zu wechseln");
+            lore.add(ChatColor.BLUE + "Du bist " + ChatColor.YELLOW + "Spieler");
             meta.setLore(lore);
             //Enchantment adden, wenn man wechseln kann:
             if(Data.players.size() > 4) {
@@ -43,14 +44,14 @@ public class Items {
             ItemStack switchItem = new ItemStack(Material.STICK);
             ItemMeta meta = switchItem.getItemMeta();
 
-            meta.setDisplayName(ChatColor.GRAY + "Du bist " + ChatColor.DARK_GRAY + "Zuschauer");
+            meta.setDisplayName(ChatColor.RED + "Rechtsklick," + ChatColor.BLUE + " um zu den " + ChatColor.YELLOW + "Spielern" + ChatColor.BLUE + " zu wechseln");
+            meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 
             ArrayList<String> lore = new ArrayList<>();
-            lore.add(ChatColor.RED + "Rechtsklick" + ChatColor.BLUE + ", um zu den");
-            lore.add(ChatColor.YELLOW + "Spielern" + ChatColor.BLUE + " zu wechseln");
+            lore.add(ChatColor.GRAY + "Du bist " + ChatColor.DARK_GRAY + "Zuschauer");
             meta.setLore(lore);
             //Enchantment adden, wenn man wechseln kann:
-            if(Data.players.size() < Config.cfg.getInt("maxPlayer")) { //TODO: @Lukas geht das so????!!!?!?!?!??!?!?!?!??!?!
+            if(Data.players.size() < Config.cfg.getInt("maxPlayer")) {
                 meta.addEnchant(Enchantment.DURABILITY, 1, true);
             }
             switchItem.setItemMeta(meta);
