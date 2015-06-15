@@ -11,8 +11,9 @@ public class Inv {
 
     public static void getStandardInventory(Player p) {
         if(GameState.isState(GameState.IN_LOBBY)) {
-            Items.getSwitchItem(p);
             Items.getLeaveItem(p);
+            Items.getTeamItem(p);
+            Items.getSwitchItem(p);
         }
 
         if(GameState.isState(GameState.IN_GAME)) {

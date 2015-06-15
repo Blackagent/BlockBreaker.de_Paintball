@@ -80,6 +80,21 @@ public class Items {
 
 
 
+    public static void getTeamItem(Player p) {
+        ItemStack teamItem = new ItemStack(Material.SNOW_BALL);
+        ItemMeta meta = teamItem.getItemMeta();
+
+        meta.setDisplayName(ChatColor.BLUE + "Teamauswahl");
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+
+        ArrayList<String> lore = new ArrayList<>();
+        lore.add(ChatColor.BLUE + "Zuruück zur" + ChatColor.DARK_GREEN + "Lobby");
+        meta.setLore(lore);
+
+        teamItem.setItemMeta(meta);
+
+        p.getInventory().setItem(0, teamItem);
+    }
 
 
 
