@@ -53,6 +53,10 @@ public class InteractListener implements Listener{
                 }
                 p.performCommand("/hub");
             }
+
+            if(e.getMaterial().equals(Material.SNOW_BALL)) {
+                //TODO: Virtuelles Inventar + Team Listen
+            }
         }
     }
 }
