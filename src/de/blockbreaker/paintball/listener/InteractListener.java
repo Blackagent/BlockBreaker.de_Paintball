@@ -42,7 +42,7 @@ public class InteractListener implements Listener{
                     p.sendMessage(Data.Prefix + ChatColor.BLUE + "Du bist nun " + ChatColor.YELLOW + "Spieler");
                 }
                 else {
-                    p.sendMessage(Data.Prefix + ChatColor.BLUE + "Du kannst leider nicht wechseln, da schon " + ChatColor.DARK_BLUE + "alle Plätze belegt " + ChatColor.BLUE + " sind!");
+                    p.sendMessage(Data.Prefix + ChatColor.BLUE + "Du kannst leider nicht wechseln, da schon " + ChatColor.DARK_BLUE + "alle Slots belegt " + ChatColor.BLUE + " sind!");
                 }
             }
         }
