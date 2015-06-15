@@ -42,7 +42,7 @@ public class JoinListener implements Listener{
             if(Data.players.size() < Config.cfg.getInt("maxPlayer")) {
                 Data.players.add(e.getPlayer());
             }
-            Bukkit.getOnlinePlayers().forEach(player -> Inv.getStandartInventory(player));
+            Bukkit.getOnlinePlayers().forEach(player -> Inv.getStandardInventory(player));
         }
 
         //Im Spiel:

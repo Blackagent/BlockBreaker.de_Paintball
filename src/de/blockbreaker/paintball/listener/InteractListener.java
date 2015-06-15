@@ -27,7 +27,7 @@ public class InteractListener implements Listener{
             if(e.getMaterial().equals(Material.BLAZE_ROD)) {
                 if(Data.players.size() > 4) {
                     Data.players.remove(p);
-                    Bukkit.getOnlinePlayers().forEach(player -> Inv.getStandartInventory(player));
+                    Bukkit.getOnlinePlayers().forEach(player -> Inv.getStandardInventory(player));
                     p.sendMessage(Data.Prefix + ChatColor.BLUE + "Du bist nun " + ChatColor.DARK_GRAY + "Zuschauer");
                 } else {
                     p.sendMessage(Data.Prefix + ChatColor.BLUE + "Du kannst leider nicht wechseln, da es sonst " + ChatColor.DARK_BLUE + "zu wenig Spieler" + ChatColor.BLUE + " gibt!");
@@ -38,7 +38,7 @@ public class InteractListener implements Listener{
             if(e.getMaterial().equals(Material.STICK)) {
                 if(Data.players.size() < Config.cfg.getInt("maxPlayer")) {
                     Data.players.add(p);
-                    Bukkit.getOnlinePlayers().forEach(player -> Inv.getStandartInventory(player));
+                    Bukkit.getOnlinePlayers().forEach(player -> Inv.getStandardInventory(player));
                     p.sendMessage(Data.Prefix + ChatColor.BLUE + "Du bist nun " + ChatColor.YELLOW + "Spieler");
                 }
                 else {

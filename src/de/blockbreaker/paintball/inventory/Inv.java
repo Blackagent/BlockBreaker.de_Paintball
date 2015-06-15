@@ -9,9 +9,10 @@ import org.bukkit.entity.Player;
  */
 public class Inv {
 
-    public static void getStandartInventory(Player p) {
+    public static void getStandardInventory(Player p) {
         if(GameState.isState(GameState.IN_LOBBY)) {
             Items.getSwitchItem(p);
+            Items.getLeaveItem(p);
         }
 
         if(GameState.isState(GameState.IN_GAME)) {

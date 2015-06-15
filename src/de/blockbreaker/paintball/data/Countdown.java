@@ -43,6 +43,7 @@ public class Countdown{
                             Bukkit.getOnlinePlayers().forEach(player -> player.playSound(player.getLocation(), Sound.NOTE_PLING, 2, 35));
                             GameState.setState(GameState.IN_GAME);
                             //inv getten wichtig nach ingam ^^^^^!!!
+                            //tpen
                             Bukkit.getScheduler().cancelAllTasks();
                         }
 
