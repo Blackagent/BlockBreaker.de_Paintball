@@ -45,6 +45,14 @@ public class InteractListener implements Listener{
                     p.sendMessage(Data.Prefix + ChatColor.BLUE + "Du kannst leider nicht wechseln, da schon " + ChatColor.DARK_BLUE + "alle Slots belegt " + ChatColor.BLUE + " sind!");
                 }
             }
+
+            //Mit dem Leave Item in die Lobby springen
+            if(e.getMaterial().equals(Material.EMERALD)) {
+                if(Data.players.contains(p)) {
+                    Data.players.remove(p);
+                }
+                p.performCommand("/hub");
+            }
         }
     }
 }
