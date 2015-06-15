@@ -66,7 +66,7 @@ public class Items {
         ItemStack leaveItem = new ItemStack(Material.EMERALD);
         ItemMeta meta = leaveItem.getItemMeta();
 
-        meta.setDisplayName(ChatColor.RED + "Rechtsklick," + ChatColor.BLUE + " um zurück in die " + ChatColor.DARK_GREEN + "Lobby" + ChatColor.BLUE + "  zu springen");
+        meta.setDisplayName(ChatColor.RED + "Rechtsklick," + ChatColor.BLUE + " um wieder in die " + ChatColor.DARK_GREEN + "Lobby" + ChatColor.BLUE + "  zu springen");
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 
         ArrayList<String> lore = new ArrayList<>();
