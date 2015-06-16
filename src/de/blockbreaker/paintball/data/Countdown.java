@@ -48,7 +48,7 @@ public class Countdown{
                         }
 
                         Bukkit.getOnlinePlayers().forEach(player -> player.setLevel(Data.counter));
-                        Bukkit.getOnlinePlayers().forEach(player -> player.setExp(Data.counter/60));
+                        Bukkit.getOnlinePlayers().forEach(player -> player.setExp(Data.counter/60/100));//TODO: Die EP leiste läuft noch nich
                         Data.counter --;
                     }
                 }, 0, 20);
