@@ -20,6 +20,11 @@ public class CancelledEvents implements Listener{
         e.setCancelled(true);
     }
 
+    /*@EventHandler
+    public void onThrow( e) {
+        e.setCancelled(true);
+    }*/
+
     @EventHandler
     public void onDamage(EntityDamageEvent e) {
         e.setCancelled(true);
