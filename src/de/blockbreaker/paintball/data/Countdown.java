@@ -29,12 +29,12 @@ public class Countdown{
                         //Standard durchlauf:
                         if(Data.counter == 60 || Data.counter == 45 || Data.counter == 30 || Data.counter == 20 || Data.counter == 10 || Data.counter == 3 || Data.counter == 2) {
                             Bukkit.broadcastMessage(Data.Prefix + ChatColor.BLUE + "Das Match startet in " + ChatColor.GREEN + Data.counter + " Sekunden");
-                            Bukkit.getOnlinePlayers().forEach(player -> player.playSound(player.getLocation(), Sound.NOTE_PLING, 1, 34));
+                            Bukkit.getOnlinePlayers().forEach(player -> player.playSound(player.getLocation(), Sound.NOTE_PLING, 1, 21));
                         }
 
                         if(Data.counter == 1) {
                             Bukkit.broadcastMessage(Data.Prefix + ChatColor.RED + "Das Match startet " + ChatColor.DARK_RED + "jetzt");
-                            Bukkit.getOnlinePlayers().forEach(player -> player.playSound(player.getLocation(), Sound.NOTE_PLING, 1, 34));
+                            Bukkit.getOnlinePlayers().forEach(player -> player.playSound(player.getLocation(), Sound.NOTE_PLING, 1, 21));
                         }
 
                         if(Data.counter == 0) {
