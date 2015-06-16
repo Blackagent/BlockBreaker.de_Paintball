@@ -10,6 +10,9 @@ import org.bukkit.entity.Player;
 public class Inv {
 
     public static void getStandardInventory(Player p) {
+
+        p.getInventory().clear();
+
         if(GameState.isState(GameState.IN_LOBBY)) {
             Items.getLeaveItem(p);
             Items.getTeamItem(p);

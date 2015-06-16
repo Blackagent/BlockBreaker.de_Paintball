@@ -51,10 +51,12 @@ public class InteractListener implements Listener{
                 if(Data.players.contains(p)) {
                     Data.players.remove(p);
                 }
-                p.performCommand("/hub");
+                p.performCommand("/l");
             }
 
             if(e.getMaterial().equals(Material.SNOW_BALL)) {
+                e.setCancelled(true);
+
                 //TODO: Virtuelles Inventar + Team Listen
             }
         }

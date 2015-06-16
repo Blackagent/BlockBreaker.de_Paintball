@@ -6,8 +6,11 @@ import de.blockbreaker.paintball.data.Countdown;
 import de.blockbreaker.paintball.data.Data;
 import de.blockbreaker.paintball.data.GameState;
 import de.blockbreaker.paintball.inventory.Inv;
+import de.blockbreaker.paintball.inventory.InventoryClear;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.GameMode;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -24,9 +27,13 @@ public class JoinListener implements Listener{
     public void onJoin(PlayerJoinEvent e) {
 
         e.setJoinMessage(null);
+        Player p = e.getPlayer();
+        InventoryClear.joinPlayer(p);
 
         //In der Lobby:
         if(GameState.isState(GameState.IN_LOBBY)) {
+            p.setGameMode(GameMode.ADVENTURE);
+
             Bukkit.getOnlinePlayers().forEach(player -> player.setExp(0));
             Bukkit.getOnlinePlayers().forEach(player -> player.setLevel(0));
             Bukkit.broadcastMessage(Data.Prefix + ChatColor.GREEN + "--> " + ChatColor.YELLOW + e.getPlayer().getName() + ChatColor.AQUA + " hat das Spiel " + ChatColor.GREEN + "betreten");

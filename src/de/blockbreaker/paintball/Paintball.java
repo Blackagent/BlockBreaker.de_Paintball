@@ -4,6 +4,7 @@ import de.blockbreaker.paintball.data.Config;
 import de.blockbreaker.paintball.data.Data;
 import de.blockbreaker.paintball.data.GameState;
 import de.blockbreaker.paintball.data.RegisterUtil;
+import de.blockbreaker.paintball.listener.CancelledEvents;
 import de.blockbreaker.paintball.listener.InteractListener;
 import de.blockbreaker.paintball.listener.JoinListener;
 import de.blockbreaker.paintball.listener.LeaveListener;
@@ -26,7 +27,7 @@ public class Paintball extends JavaPlugin{
         //Events Registrieren:
         RegisterUtil<Paintball> register = new RegisterUtil<Paintball>(this);
 
-        register.registerEvents(JoinListener.class, LeaveListener.class, InteractListener.class);
+        register.registerEvents(JoinListener.class, LeaveListener.class, InteractListener.class, CancelledEvents.class);
 
         //Config erstellen:
         Config.createConfig();
