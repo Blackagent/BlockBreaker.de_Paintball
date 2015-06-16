@@ -22,7 +22,7 @@ public class Countdown{
                         //Canceln wenn zu wenig Spieler auf dem Server sind:
                         if(Bukkit.getOnlinePlayers().size() < 4) {
                             Bukkit.getOnlinePlayers().forEach(player -> player.setExp(0));
-                            Bukkit.getOnlinePlayers().forEach(player -> player.setLevel(0));
+                            Bukkit.getOnlinePlayers().forEach(player -> player.setLevel(1));//TODO: Lever wird nicht reesetted
                             Bukkit.getScheduler().cancelAllTasks();
                         }
 
