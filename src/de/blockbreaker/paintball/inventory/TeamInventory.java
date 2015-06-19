@@ -2,6 +2,7 @@ package de.blockbreaker.paintball.inventory;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.block.Block;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
@@ -24,7 +25,7 @@ public class TeamInventory {
         inv = p.getServer().createInventory(null, 9, ChatColor.BLUE + "Teamauswahl");
 
         //Item für Team 1:
-        ItemStack team1 = new ItemStack(Material.WOOL);//TODO: korrekte Farben
+        ItemStack team1 = new ItemStack(Material.WOOL, (byte)5);//TODO: korrekte Farben
         ItemMeta meta1 = team1.getItemMeta();
         meta1.setDisplayName(ChatColor.GREEN + "Team 1 " + ChatColor.BLUE + "betreten");
         meta1.addItemFlags(ItemFlag.HIDE_ENCHANTS);
@@ -36,7 +37,7 @@ public class TeamInventory {
 
 
         //Item für Team 2:
-        ItemStack team2 = new ItemStack(Material.WOOL);//TODO richtigen Farben
+        ItemStack team2 = new ItemStack(Material.WOOL, (byte)1);//TODO richtigen Farben
         ItemMeta meta2 = team2.getItemMeta();
         meta2.setDisplayName(ChatColor.GOLD + "Team 2 " + ChatColor.BLUE + "betreten");
         meta2.addItemFlags(ItemFlag.HIDE_ENCHANTS);
