@@ -7,7 +7,7 @@ import org.bukkit.entity.Player;
 /**
  * Created by Janne on 02.06.2015.
  */
-public class Inv {
+public class StandartInventory {
 
     public static void getStandardInventory(Player p) {
 
@@ -26,5 +26,10 @@ public class Inv {
         if(GameState.isState(GameState.POST_GAME)) {
 
         }
+    }
+
+
+    public static void refreshSwitchItem(Player p) {
+        Items.getSwitchItem(p);
     }
 }

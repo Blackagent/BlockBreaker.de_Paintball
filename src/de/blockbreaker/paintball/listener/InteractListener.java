@@ -2,7 +2,8 @@ package de.blockbreaker.paintball.listener;
 
 import de.blockbreaker.paintball.data.Config;
 import de.blockbreaker.paintball.data.Data;
-import de.blockbreaker.paintball.inventory.Inv;
+import de.blockbreaker.paintball.inventory.StandartInventory;
+import de.blockbreaker.paintball.inventory.TeamInventory;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -27,7 +28,7 @@ public class InteractListener implements Listener{
             if(e.getMaterial().equals(Material.BLAZE_ROD)) {
                 if(Data.players.size() > 4) {
                     Data.players.remove(p);
-                    Bukkit.getOnlinePlayers().forEach(player -> Inv.getStandardInventory(player));
+                    Bukkit.getOnlinePlayers().forEach(player -> StandartInventory.refreshSwitchItem(player));
                     p.sendMessage(Data.Prefix + ChatColor.BLUE + "Du bist nun " + ChatColor.DARK_GRAY + "Zuschauer");
                 } else {
                     p.sendMessage(Data.Prefix + ChatColor.BLUE + "Du kannst leider nicht wechseln, da es sonst " + ChatColor.DARK_BLUE + "zu wenig Spieler" + ChatColor.BLUE + " gibt!");
@@ -36,9 +37,9 @@ public class InteractListener implements Listener{
 
             //Von Zuschauern zu Spielern wechseln
             if(e.getMaterial().equals(Material.STICK)) {
-                if(Data.players.size() < Config.cfg.getInt("maxPlayer")) {
+                if(Data.players.size() < Data.maxPlayer) {
                     Data.players.add(p);
-                    Bukkit.getOnlinePlayers().forEach(player -> Inv.getStandardInventory(player));
+                    Bukkit.getOnlinePlayers().forEach(player -> StandartInventory.refreshSwitchItem(player));
                     p.sendMessage(Data.Prefix + ChatColor.BLUE + "Du bist nun " + ChatColor.YELLOW + "Spieler");
                 }
                 else {
@@ -56,8 +57,7 @@ public class InteractListener implements Listener{
 
             if(e.getMaterial().equals(Material.SNOW_BALL)) {
                 e.setCancelled(true);
-
-                //TODO: Virtuelles Inventar + Team Listen
+                TeamInventory.open(p);
             }
         }
     }

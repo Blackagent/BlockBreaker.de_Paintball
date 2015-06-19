@@ -4,8 +4,10 @@ package de.blockbreaker.paintball.inventory;
 import de.blockbreaker.paintball.data.Config;
 import de.blockbreaker.paintball.data.Data;
 import org.bukkit.ChatColor;
+import org.bukkit.DyeColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -51,7 +53,7 @@ public class Items {
             lore.add(ChatColor.GRAY + "Du bist " + ChatColor.DARK_GRAY + "Zuschauer");
             meta.setLore(lore);
             //Enchantment adden, wenn man wechseln kann:
-            if(Data.players.size() < Config.cfg.getInt("maxPlayer")) {
+            if(Data.players.size() < Data.maxPlayer) {
                 meta.addEnchant(Enchantment.DURABILITY, 1, true);
             }
             switchItem.setItemMeta(meta);
@@ -95,7 +97,4 @@ public class Items {
 
         p.getInventory().setItem(0, teamItem);
     }
-
-
-
 }

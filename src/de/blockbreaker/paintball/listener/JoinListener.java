@@ -5,7 +5,7 @@ import de.blockbreaker.paintball.data.Config;
 import de.blockbreaker.paintball.data.Countdown;
 import de.blockbreaker.paintball.data.Data;
 import de.blockbreaker.paintball.data.GameState;
-import de.blockbreaker.paintball.inventory.Inv;
+import de.blockbreaker.paintball.inventory.StandartInventory;
 import de.blockbreaker.paintball.inventory.InventoryClear;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -34,8 +34,6 @@ public class JoinListener implements Listener{
         if(GameState.isState(GameState.IN_LOBBY)) {
             p.setGameMode(GameMode.ADVENTURE);
 
-            Bukkit.getOnlinePlayers().forEach(player -> player.setExp(0));
-            Bukkit.getOnlinePlayers().forEach(player -> player.setLevel(0));
             Bukkit.broadcastMessage(Data.Prefix + ChatColor.GREEN + "--> " + ChatColor.YELLOW + e.getPlayer().getName() + ChatColor.AQUA + " hat das Spiel " + ChatColor.GREEN + "betreten");
             if(Bukkit.getOnlinePlayers().size() < 4) {
                 Bukkit.broadcastMessage(Data.Prefix + ChatColor.DARK_AQUA + "Es wird auf " + ChatColor.GREEN + "weitere Spieler " + ChatColor.DARK_AQUA + "gewartet");
@@ -46,10 +44,11 @@ public class JoinListener implements Listener{
             }
 
             //zu Spielern adden, wenn noch Platz ist:
-            if(Data.players.size() < Config.cfg.getInt("maxPlayer")) {
+            if(Data.players.size() < Data.maxPlayer) {
                 Data.players.add(e.getPlayer());
             }
-            Bukkit.getOnlinePlayers().forEach(player -> Inv.getStandardInventory(player));
+            StandartInventory.getStandardInventory(p);
+            Bukkit.getOnlinePlayers().forEach(player -> StandartInventory.refreshSwitchItem(player));
         }
 
         //Im Spiel:
