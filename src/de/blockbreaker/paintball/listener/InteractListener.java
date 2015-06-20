@@ -1,7 +1,6 @@
 package de.blockbreaker.paintball.listener;
 
-import de.blockbreaker.paintball.Paintball;
-import de.blockbreaker.paintball.data.Config;
+import de.blockbreaker.paintball.api.PlayerAPI;
 import de.blockbreaker.paintball.data.Data;
 import de.blockbreaker.paintball.inventory.StandartInventory;
 import de.blockbreaker.paintball.inventory.TeamInventory;
@@ -14,7 +13,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.Inventory;
 
 /**
  * Created by Janne on 14.06.2015.
@@ -62,7 +60,7 @@ public class InteractListener implements Listener{
                 if(Data.players.contains(p)) {
                     Data.players.remove(p);
                 }
-                p.performCommand("/l");
+                PlayerAPI.connectLobby(p);
             }
 
             if(e.getMaterial().equals(Material.SNOW_BALL)) {
@@ -109,8 +107,5 @@ public class InteractListener implements Listener{
             }
             p.closeInventory();
         }
-
-
-
     }
 }

@@ -65,7 +65,7 @@ public class TeamInventory {
         }
         for (int i = 0; i < Data.teamOrange.size()-1; i++) {
             lore2.add(Data.teamOrange.get(i).getDisplayName());
-            lore2.add("funztit");//TODO testmsg
+            lore2.add("funztit");
         }
 
         meta2.setLore(lore2);
