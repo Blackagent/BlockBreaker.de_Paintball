@@ -8,6 +8,7 @@ import de.blockbreaker.paintball.listener.CancelledEvents;
 import de.blockbreaker.paintball.listener.InteractListener;
 import de.blockbreaker.paintball.listener.JoinListener;
 import de.blockbreaker.paintball.listener.LeaveListener;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -45,6 +46,7 @@ public class Paintball extends JavaPlugin{
         System.out.println(Data.BlockBreaker);
         System.out.println(" =-=-=-=-=-=-=-=-=-=-=-=");
 
+        Bukkit.getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
     }
 
 
