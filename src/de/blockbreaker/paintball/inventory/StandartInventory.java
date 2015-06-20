@@ -1,6 +1,7 @@
 package de.blockbreaker.paintball.inventory;
 
 
+import de.blockbreaker.paintball.data.Data;
 import de.blockbreaker.paintball.data.GameState;
 import org.bukkit.entity.Player;
 
@@ -13,21 +14,40 @@ public class StandartInventory {
 
         p.getInventory().clear();
 
-        if(GameState.isState(GameState.IN_LOBBY)) {
-            Items.getLeaveItem(p);
-            Items.getTeamItem(p);
-            Items.getSwitchItem(p);
+        //Wenn man Spieler ist
+        if(Data.players.contains(p)) {
+            if(GameState.isState(GameState.IN_LOBBY)) {
+                Items.getLeaveItem(p);
+                Items.getTeamItem(p);
+                Items.getSwitchItem(p);
+            }
+
+            if(GameState.isState(GameState.IN_GAME)) {
+
+            }
+
+            if(GameState.isState(GameState.POST_GAME)) {
+
+            }
         }
 
-        if(GameState.isState(GameState.IN_GAME)) {
 
-        }
+        //Wenn man Zuschauer ist:
+        if(!Data.players.contains(p)) {
+            if(GameState.isState(GameState.IN_LOBBY)) {
+                Items.getLeaveItem(p);
+                Items.getSwitchItem(p);
+            }
 
-        if(GameState.isState(GameState.POST_GAME)) {
+            if(GameState.isState(GameState.IN_GAME)) {
 
+            }
+
+            if(GameState.isState(GameState.POST_GAME)) {
+
+            }
         }
     }
-
 
     public static void refreshSwitchItem(Player p) {
         Items.getSwitchItem(p);

@@ -20,6 +20,12 @@ public class LeaveListener implements Listener{
         Bukkit.broadcastMessage(Data.Prefix + ChatColor.RED + "<-- " + ChatColor.YELLOW + e.getPlayer().getName() + ChatColor.AQUA + " hat das Spiel " + ChatColor.RED + "verlassen");
         if(Data.players.contains(e.getPlayer())) {
             Data.players.remove(e.getPlayer());
+            if(Data.teamGreen.contains(e.getPlayer())) {
+                Data.teamGreen.remove(e.getPlayer());
+            }
+            if(Data.teamOrange.contains(e.getPlayer())) {
+                Data.teamOrange.remove(e.getPlayer());
+            }
         }
     }
 

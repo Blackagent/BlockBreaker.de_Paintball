@@ -1,5 +1,6 @@
 package de.blockbreaker.paintball.inventory;
 
+import de.blockbreaker.paintball.data.Data;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -25,25 +26,48 @@ public class TeamInventory {
         inv = p.getServer().createInventory(null, 9, ChatColor.BLUE + "Teamauswahl");
 
         //Item für Team 1:
-        ItemStack team1 = new ItemStack(Material.WOOL, (byte)5);//TODO: korrekte Farben
+        ItemStack team1 = new ItemStack(Material.WOOL, 1,(short) 5);
         ItemMeta meta1 = team1.getItemMeta();
-        meta1.setDisplayName(ChatColor.GREEN + "Team 1 " + ChatColor.BLUE + "betreten");
+        meta1.setDisplayName(ChatColor.GREEN + "Team 1");
         meta1.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-        meta1.addEnchant(Enchantment.DURABILITY, 1, true);
+        if(Data.teamGreen.size() < Data.maxPlayer/2) {
+            meta1.addEnchant(Enchantment.DURABILITY, 1, true);
+        }
+
+        //Lore mit allen Spielern in dem Team und ob man beitreten kann:
         ArrayList<String> lore1 = new ArrayList<>();
-        lore1.add(ChatColor.BLUE + "Linksklick, um dem Team beizutreten");
+        if(Data.teamGreen.contains(p)) {
+            lore1.add(ChatColor.GREEN + "Dein Team");
+        } else {
+            lore1.add(ChatColor.BLUE + "Linksklick, um " + ChatColor.GREEN + "Team Grün " + ChatColor.BLUE + "zu betreten");
+        }
+        for (int i = 0; i < Data.teamGreen.size()-1; i++) {
+            lore1.add(i, ChatColor.BLUE +  p.getDisplayName());
+        }
+
         meta1.setLore(lore1);
         team1.setItemMeta(meta1);
 
 
         //Item für Team 2:
-        ItemStack team2 = new ItemStack(Material.WOOL, (byte)1);//TODO richtigen Farben
+        ItemStack team2 = new ItemStack(Material.WOOL, 1,(short) 1);
         ItemMeta meta2 = team2.getItemMeta();
-        meta2.setDisplayName(ChatColor.GOLD + "Team 2 " + ChatColor.BLUE + "betreten");
+        meta2.setDisplayName(ChatColor.GOLD + "Team 2");
         meta2.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-        meta2.addEnchant(Enchantment.DURABILITY, 1, true);
+        if(Data.teamOrange.size() < Data.maxPlayer/2) {
+            meta2.addEnchant(Enchantment.DURABILITY, 1, true);
+        }
+
         ArrayList<String> lore2 = new ArrayList<>();
-        lore2.add(ChatColor.BLUE + "Linksklick, um dem Team beizutreten");
+        if(Data.teamOrange.contains(p)) {
+            lore1.add(ChatColor.GOLD + "Dein Team");
+        } else {
+            lore1.add(ChatColor.BLUE + "Linksklick, um " + ChatColor.GOLD + "Team Orange " + ChatColor.BLUE + "zu betreten");
+        }
+        for (int i = 0; i < Data.teamOrange.size()-1; i++) {
+            lore1.add(i, ChatColor.BLUE +  p.getDisplayName());
+        }
+
         meta2.setLore(lore2);
         team2.setItemMeta(meta2);
 
@@ -53,6 +77,6 @@ public class TeamInventory {
         inv.setItem(6, team2);
 
         p.openInventory(inv);
-        p.updateInventory(); //TODO: Listen der Teams, Wenn man auf die Bloöcke klickt joinen, aktualisieren und wenn joinbar Enchanten
+        p.updateInventory();//TODO: updaten for each weil wegen blinken
     }
 }

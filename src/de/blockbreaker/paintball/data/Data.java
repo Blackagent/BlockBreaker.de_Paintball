@@ -18,6 +18,6 @@ public class Data {
     public static int counter;
     public static int maxPlayer = Config.cfg.getInt("maxPlayer");
     public static List<Player> players = new ArrayList<Player>();
-    public static List<Player> team1 = new ArrayList<Player>();
-    public static List<Player> team2 = new ArrayList<Player>();
+    public static List<Player> teamGreen = new ArrayList<Player>();
+    public static List<Player> teamOrange = new ArrayList<Player>();
 }
