@@ -11,7 +11,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
-import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 /**
@@ -67,45 +66,38 @@ public class InteractListener implements Listener{
                 e.setCancelled(true);
                 TeamInventory.open(p);
             }
-        }
-    }
 
 
-    @EventHandler
-    public void onItemClick(InventoryClickEvent e) {
-        e.setCancelled(true);
-        Player p = (Player) e.getWhoClicked();
-
-        //Grünes Team betreten:
-        if(e.getCurrentItem().getItemMeta().getDisplayName().equals(ChatColor.GREEN + "Team 1")) {
-            if(Data.teamGreen.contains(p)) {
-                p.sendMessage(Data.Prefix + ChatColor.RED + "Du bist schon in " + ChatColor.GREEN + "Team 1");
-            } else if(Data.teamGreen.size() < Data.maxPlayer/2) {
-                if(Data.teamOrange.contains(p)) {
-                    Data.teamOrange.remove(p);
-                }
-                Data.teamGreen.add(p);
-                p.sendMessage(Data.Prefix + ChatColor.BLUE + "Du bist nun in " + ChatColor.GREEN + "Team 1");
-            } else {
-                p.sendMessage(Data.Prefix + ChatColor.GREEN + "Team 1 " + ChatColor.RED + "ist bereits voll");
-            }
-            p.closeInventory();
-        }
-
-        //Oranges Team betreten:
-        if(e.getCurrentItem().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "Team 2")) {
-            if(Data.teamOrange.contains(p)) {
-                p.sendMessage(Data.Prefix + ChatColor.RED + "Du bist schon in " + ChatColor.GOLD + "Team 2");
-            } else if(Data.teamOrange.size() < Data.maxPlayer/2) {
+            if(e.getItem().getItemMeta().getDisplayName().equals(ChatColor.GREEN + "Team 1")) {//TODO: hoer is ne nullpointer
                 if(Data.teamGreen.contains(p)) {
-                    Data.teamGreen.remove(p);
+                    p.sendMessage(Data.Prefix + ChatColor.RED + "Du bist schon in " + ChatColor.GREEN + "Team 1");
+                } else if(Data.teamGreen.size() < Data.maxPlayer/2) {
+                    if(Data.teamOrange.contains(p)) {
+                        Data.teamOrange.remove(p);
+                    }
+                    Data.teamGreen.add(p);
+                    p.sendMessage(Data.Prefix + ChatColor.BLUE + "Du bist nun in " + ChatColor.GREEN + "Team 1");
+                } else {
+                    p.sendMessage(Data.Prefix + ChatColor.GREEN + "Team 1 " + ChatColor.RED + "ist bereits voll");
                 }
-                Data.teamOrange.add(p);
-                p.sendMessage(Data.Prefix + ChatColor.BLUE + "Du bist nun in " + ChatColor.GOLD + "Team 2");
-            } else {
-                p.sendMessage(Data.Prefix + ChatColor.GOLD + "Team 2 " + ChatColor.RED + "ist bereits voll");
+                p.closeInventory();
             }
-            p.closeInventory();
+
+            //Oranges Team betreten:
+            if(e.getItem().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "Team 2")) {
+                if(Data.teamOrange.contains(p)) {
+                    p.sendMessage(Data.Prefix + ChatColor.RED + "Du bist schon in " + ChatColor.GOLD + "Team 2");
+                } else if(Data.teamOrange.size() < Data.maxPlayer/2) {
+                    if(Data.teamGreen.contains(p)) {
+                        Data.teamGreen.remove(p);
+                    }
+                    Data.teamOrange.add(p);
+                    p.sendMessage(Data.Prefix + ChatColor.BLUE + "Du bist nun in " + ChatColor.GOLD + "Team 2");
+                } else {
+                    p.sendMessage(Data.Prefix + ChatColor.GOLD + "Team 2 " + ChatColor.RED + "ist bereits voll");
+                }
+                p.closeInventory();
+            }
         }
     }
 }
