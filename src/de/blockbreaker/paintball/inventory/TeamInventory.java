@@ -41,7 +41,7 @@ public class TeamInventory {
             lore1.add(ChatColor.BLUE + "Linksklick, um " + ChatColor.GREEN + "Team 1 " + ChatColor.BLUE + "zu betreten");
         }
         for (int i = 0; i < Data.teamGreen.size()-1; i++) {
-            lore1.add(i, ChatColor.BLUE +  p.getDisplayName());
+            lore1.add(Data.teamGreen.get(i).getDisplayName());
         }
 
         meta1.setLore(lore1);
@@ -59,12 +59,13 @@ public class TeamInventory {
 
         ArrayList<String> lore2 = new ArrayList<>();
         if(Data.teamOrange.contains(p)) {
-            lore1.add(ChatColor.GOLD + "Dein Team");
+            lore2.add(ChatColor.GOLD + "Dein Team");
         } else {
-            lore1.add(ChatColor.BLUE + "Linksklick, um " + ChatColor.GOLD + "Team 2 " + ChatColor.BLUE + "zu betreten");
+            lore2.add(ChatColor.BLUE + "Linksklick, um " + ChatColor.GOLD + "Team 2 " + ChatColor.BLUE + "zu betreten");
         }
         for (int i = 0; i < Data.teamOrange.size()-1; i++) {
-            lore1.add(i, ChatColor.BLUE +  p.getDisplayName());
+            lore2.add(Data.teamOrange.get(i).getDisplayName());
+            lore2.add("funztit");//TODO testmsg
         }
 
         meta2.setLore(lore2);
