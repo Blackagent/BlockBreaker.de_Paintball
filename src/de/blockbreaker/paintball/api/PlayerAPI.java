@@ -11,7 +11,7 @@ import java.io.DataOutputStream;
  */
 public class PlayerAPI {
 
-    public void connectLobby(Player p) {
+    public static void connectLobby(Player p) {
         try {
             ByteArrayOutputStream b = new ByteArrayOutputStream();
             DataOutputStream out = new DataOutputStream(b);
