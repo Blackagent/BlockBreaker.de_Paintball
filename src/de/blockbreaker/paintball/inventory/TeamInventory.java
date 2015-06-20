@@ -3,7 +3,6 @@ package de.blockbreaker.paintball.inventory;
 import de.blockbreaker.paintball.data.Data;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.block.Block;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
