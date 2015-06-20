@@ -54,7 +54,7 @@ public class TeamInventory {
         meta2.setDisplayName(ChatColor.GOLD + "Team 2");
         meta2.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         if(Data.teamOrange.size() < Data.maxPlayer/2) {
-            meta2.addEnchant(Enchantment.DURABILITY, 1, true);
+            meta2.addEnchant(Enchantment.DURABILITY, 1, true);//TODO: teams nich grün 1000000 orange 1
         }
 
         ArrayList<String> lore2 = new ArrayList<>();

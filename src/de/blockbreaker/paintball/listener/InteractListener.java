@@ -62,13 +62,15 @@ public class InteractListener implements Listener{
                 PlayerAPI.connectLobby(p);
             }
 
+            //Team Inventar öffnen
             if(e.getMaterial().equals(Material.SNOW_BALL)) {
                 e.setCancelled(true);
                 TeamInventory.open(p);
+                p.updateInventory();
             }
 
-
-            if(e.getItem().getItemMeta().getDisplayName().equals(ChatColor.GREEN + "Team 1")) {//TODO: hoer is ne nullpointer
+            //Grünes Team betreten:
+            if(e.getItem().getItemMeta().getDisplayName().equals(ChatColor.GREEN + "Team 1")) {
                 if(Data.teamGreen.contains(p)) {
                     p.sendMessage(Data.Prefix + ChatColor.RED + "Du bist schon in " + ChatColor.GREEN + "Team 1");
                 } else if(Data.teamGreen.size() < Data.maxPlayer/2) {
