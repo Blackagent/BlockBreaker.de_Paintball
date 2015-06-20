@@ -36,12 +36,12 @@ public class TeamInventory {
         //Lore mit allen Spielern in dem Team und ob man beitreten kann:
         ArrayList<String> lore1 = new ArrayList<>();
         if(Data.teamGreen.contains(p)) {
-            lore1.add(ChatColor.GREEN + "Dein Team");
+            lore1.add(ChatColor.GREEN + "Dein Team:");
         } else {
             lore1.add(ChatColor.BLUE + "Linksklick, um " + ChatColor.GREEN + "Team 1 " + ChatColor.BLUE + "zu betreten");
         }
         for (int i = 0; i < Data.teamGreen.size()-1; i++) {
-            lore1.add(Data.teamGreen.get(i).getDisplayName());
+            lore1.add(ChatColor.YELLOW + Data.teamGreen.get(i).getDisplayName());
         }
 
         meta1.setLore(lore1);
@@ -59,13 +59,12 @@ public class TeamInventory {
 
         ArrayList<String> lore2 = new ArrayList<>();
         if(Data.teamOrange.contains(p)) {
-            lore2.add(ChatColor.GOLD + "Dein Team");
+            lore2.add(ChatColor.GOLD + "Dein Team:");
         } else {
             lore2.add(ChatColor.BLUE + "Linksklick, um " + ChatColor.GOLD + "Team 2 " + ChatColor.BLUE + "zu betreten");
         }
         for (int i = 0; i < Data.teamOrange.size()-1; i++) {
-            lore2.add(Data.teamOrange.get(i).getDisplayName());
-            lore2.add("funztit");
+            lore2.add(ChatColor.YELLOW + Data.teamOrange.get(i).getDisplayName());
         }
 
         meta2.setLore(lore2);
