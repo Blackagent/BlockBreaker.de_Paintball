@@ -46,7 +46,7 @@ public class Paintball extends JavaPlugin{
         System.out.println(Data.BlockBreaker);
         System.out.println(" =-=-=-=-=-=-=-=-=-=-=-=");
 
-        Bukkit.getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
+        Bukkit.getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord")
     }
 
 
