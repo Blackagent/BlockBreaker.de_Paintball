@@ -31,6 +31,12 @@ public class InteractListener implements Listener{
             if(e.getMaterial().equals(Material.BLAZE_ROD)) {
                 if(Data.players.size() > 4) {
                     Data.players.remove(p);
+                    if(Data.teamGreen.contains(p)) {
+                        Data.teamGreen.remove(p);
+                    }
+                    if(Data.teamOrange.contains(p)) {
+                        Data.teamOrange.remove(p);
+                    }
                     Bukkit.getOnlinePlayers().forEach(player -> StandartInventory.refreshSwitchItem(player));
                     p.sendMessage(Data.Prefix + ChatColor.BLUE + "Du bist nun " + ChatColor.DARK_GRAY + "Zuschauer");
                 } else {
@@ -42,6 +48,7 @@ public class InteractListener implements Listener{
             if(e.getMaterial().equals(Material.STICK)) {
                 if(Data.players.size() < Data.maxPlayer) {
                     Data.players.add(p);
+                    StandartInventory.getStandardInventory(p);
                     Bukkit.getOnlinePlayers().forEach(player -> StandartInventory.refreshSwitchItem(player));
                     p.sendMessage(Data.Prefix + ChatColor.BLUE + "Du bist nun " + ChatColor.YELLOW + "Spieler");
                 }
@@ -66,7 +73,7 @@ public class InteractListener implements Listener{
     }
 
 
-
+    @EventHandler
     public void onItemClick(InventoryClickEvent e) {
         e.setCancelled(true);
         Player p = (Player) e.getWhoClicked();

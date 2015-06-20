@@ -38,7 +38,7 @@ public class TeamInventory {
         if(Data.teamGreen.contains(p)) {
             lore1.add(ChatColor.GREEN + "Dein Team");
         } else {
-            lore1.add(ChatColor.BLUE + "Linksklick, um " + ChatColor.GREEN + "Team Grün " + ChatColor.BLUE + "zu betreten");
+            lore1.add(ChatColor.BLUE + "Linksklick, um " + ChatColor.GREEN + "Team 1 " + ChatColor.BLUE + "zu betreten");
         }
         for (int i = 0; i < Data.teamGreen.size()-1; i++) {
             lore1.add(i, ChatColor.BLUE +  p.getDisplayName());
@@ -61,7 +61,7 @@ public class TeamInventory {
         if(Data.teamOrange.contains(p)) {
             lore1.add(ChatColor.GOLD + "Dein Team");
         } else {
-            lore1.add(ChatColor.BLUE + "Linksklick, um " + ChatColor.GOLD + "Team Orange " + ChatColor.BLUE + "zu betreten");
+            lore1.add(ChatColor.BLUE + "Linksklick, um " + ChatColor.GOLD + "Team 2 " + ChatColor.BLUE + "zu betreten");
         }
         for (int i = 0; i < Data.teamOrange.size()-1; i++) {
             lore1.add(i, ChatColor.BLUE +  p.getDisplayName());
