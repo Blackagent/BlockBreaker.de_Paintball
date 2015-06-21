@@ -107,6 +107,7 @@ public class InteractListener implements Listener{
 
     public void onClick(InventoryClickEvent e) {
         Player p = (Player) e.getWhoClicked();
+        p.updateInventory();
 
         //Grünes Team betreten: //TODO: das muss noch wieder ins inv click weil es sonst nich funzt
         if(e.getCurrentItem().getItemMeta().getDisplayName().equals(ChatColor.GREEN + "Team 1")) {
