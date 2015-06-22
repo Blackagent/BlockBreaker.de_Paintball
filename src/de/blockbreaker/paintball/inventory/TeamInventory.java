@@ -68,7 +68,7 @@ public class TeamInventory {
         }
 
         meta2.setLore(lore2);
-        team2.setItemMeta(meta2);
+        team2.setItemMeta(meta2);//TODO: Effekte
 
 
         //Items ins Inventar einfügen:

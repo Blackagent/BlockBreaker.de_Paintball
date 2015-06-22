@@ -69,47 +69,15 @@ public class InteractListener implements Listener{
                 TeamInventory.open(p);
                 p.updateInventory();
             }
-
-            //Grünes Team betreten: //TODO: das muss noch wieder ins inv click weil es sonst nich funzt
-            if(e.getItem().getItemMeta().getDisplayName().equals(ChatColor.GREEN + "Team 1")) {
-                if(Data.teamGreen.contains(p)) {
-                    p.sendMessage(Data.Prefix + ChatColor.RED + "Du bist schon in " + ChatColor.GREEN + "Team 1");
-                } else if(Data.teamGreen.size() < Data.maxPlayer/2) {
-                    if(Data.teamOrange.contains(p)) {
-                        Data.teamOrange.remove(p);
-                    }
-                    Data.teamGreen.add(p);
-                    p.sendMessage(Data.Prefix + ChatColor.BLUE + "Du bist nun in " + ChatColor.GREEN + "Team 1");
-                } else {
-                    p.sendMessage(Data.Prefix + ChatColor.GREEN + "Team 1 " + ChatColor.RED + "ist bereits voll");
-                }
-                p.closeInventory();
-            }
-
-            //Oranges Team betreten:
-            if(e.getItem().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "Team 2")) {
-                if(Data.teamOrange.contains(p)) {
-                    p.sendMessage(Data.Prefix + ChatColor.RED + "Du bist schon in " + ChatColor.GOLD + "Team 2");
-                } else if(Data.teamOrange.size() < Data.maxPlayer/2) {
-                    if(Data.teamGreen.contains(p)) {
-                        Data.teamGreen.remove(p);
-                    }
-                    Data.teamOrange.add(p);
-                    p.sendMessage(Data.Prefix + ChatColor.BLUE + "Du bist nun in " + ChatColor.GOLD + "Team 2");
-                } else {
-                    p.sendMessage(Data.Prefix + ChatColor.GOLD + "Team 2 " + ChatColor.RED + "ist bereits voll");
-                }
-                p.closeInventory();
-            }
         }
     }
 
 
+    @EventHandler
     public void onClick(InventoryClickEvent e) {
         Player p = (Player) e.getWhoClicked();
-        p.updateInventory();
 
-        //Grünes Team betreten: //TODO: das muss noch wieder ins inv click weil es sonst nich funzt
+        //Grünes Team betreten: TODO: NullPointer :/
         if(e.getCurrentItem().getItemMeta().getDisplayName() == ChatColor.GREEN + "Team 1") {
             if(Data.teamGreen.contains(p)) {
                 p.sendMessage(Data.Prefix + ChatColor.RED + "Du bist schon in " + ChatColor.GREEN + "Team 1");

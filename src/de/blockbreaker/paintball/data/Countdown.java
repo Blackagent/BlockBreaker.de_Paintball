@@ -12,20 +12,12 @@ import org.bukkit.Sound;
 public class Countdown{
 
     public static void startCountdown() {
-
         if(GameState.isState(GameState.IN_LOBBY)) {
             if(Bukkit.getOnlinePlayers().size() == 4) {
-                Bukkit.getScheduler().scheduleAsyncRepeatingTask(Paintball.getInstance(), new Runnable() {
+
+                 Paintball.getInstance().countdown = Bukkit.getScheduler().scheduleAsyncRepeatingTask(Paintball.getInstance(), new Runnable() {
                     @Override
                     public void run() {
-
-                        //Canceln wenn zu wenig Spieler auf dem Server sind:
-                        if(Bukkit.getOnlinePlayers().size() < 4) {
-                            Bukkit.getOnlinePlayers().forEach(player -> player.setExp(0));
-                            Bukkit.getOnlinePlayers().forEach(player -> player.setLevel(1));//TODO: Lever wird nicht reesetted
-                            Bukkit.getScheduler().cancelAllTasks();
-                        }
-
                         //Standard durchlauf:
                         if(Data.counter == 60 || Data.counter == 45 || Data.counter == 30 || Data.counter == 20 || Data.counter == 10 || Data.counter == 3 || Data.counter == 2) {
                             Bukkit.broadcastMessage(Data.Prefix + ChatColor.BLUE + "Das Match startet in " + ChatColor.GREEN + Data.counter + " Sekunden");
@@ -44,7 +36,7 @@ public class Countdown{
                             GameState.setState(GameState.IN_GAME);
                             //inv getten wichtig nach ingam ^^^^^!!!
                             //tpen
-                            Bukkit.getScheduler().cancelAllTasks();
+                            Bukkit.getScheduler().cancelTask(Paintball.getInstance().countdown);
                         }
 
                         Bukkit.getOnlinePlayers().forEach(player -> player.setLevel(Data.counter));

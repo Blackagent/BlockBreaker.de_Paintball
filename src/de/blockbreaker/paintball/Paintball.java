@@ -22,12 +22,14 @@ public class Paintball extends JavaPlugin{
     //Instance:
     private static Paintball instance;
 
+    //TaskID´s:
+    public int countdown;
+
 
     public void onEnable() {
 
         //Events Registrieren:
         RegisterUtil<Paintball> register = new RegisterUtil<Paintball>(this);
-
         register.registerEvents(JoinListener.class, LeaveListener.class, InteractListener.class, CancelledEvents.class);
 
         //Config erstellen:
