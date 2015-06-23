@@ -126,7 +126,7 @@ public class InteractListener implements Listener{
             p.closeInventory();
         }
 
-        if(e.getCurrentItem() == null) {
+        if(e.getCurrentItem().getType() == null) {
             e.setCancelled(true);
         }
     }
