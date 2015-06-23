@@ -78,7 +78,7 @@ public class InteractListener implements Listener{
         Player p = (Player) e.getWhoClicked();
 
         //Grünes Team betreten: TODO: NullPointer :/
-        if(e.getCurrentItem().getItemMeta().getDisplayName() == ChatColor.GREEN + "Team 1") {
+        if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GREEN + "Team 1")) {
             if(Data.teamGreen.contains(p)) {
                 p.sendMessage(Data.Prefix + ChatColor.RED + "Du bist schon in " + ChatColor.GREEN + "Team 1");
             } else if(Data.teamGreen.size() < Data.maxPlayer/2) {
@@ -94,7 +94,7 @@ public class InteractListener implements Listener{
         }
 
         //Oranges Team betreten:
-        if(e.getCurrentItem().getItemMeta().getDisplayName() == ChatColor.GOLD + "Team 2") {
+        if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GOLD + "Team 2")) {
             if(Data.teamOrange.contains(p)) {
                 p.sendMessage(Data.Prefix + ChatColor.RED + "Du bist schon in " + ChatColor.GOLD + "Team 2");
             } else if(Data.teamOrange.size() < Data.maxPlayer/2) {
