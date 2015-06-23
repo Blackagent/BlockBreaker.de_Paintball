@@ -15,6 +15,8 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
+import java.util.EmptyStackException;
+
 /**
  * Created by Janne on 14.06.2015.
  */
@@ -83,15 +85,20 @@ public class InteractListener implements Listener{
         if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GREEN + "Team 1")) {
             if(Data.teamGreen.contains(p)) {
                 p.sendMessage(Data.Prefix + ChatColor.RED + "Du bist schon in " + ChatColor.GREEN + "Team 1");
+                p.updateInventory();
             } else if(Data.teamGreen.size() < Data.maxPlayer/2) {
                 if(Data.teamOrange.contains(p)) {
                     Data.teamOrange.remove(p);
+                    p.updateInventory();
                 }
                 Data.teamGreen.add(p);
                 p.sendMessage(Data.Prefix + ChatColor.BLUE + "Du bist nun in " + ChatColor.GREEN + "Team 1");
+                p.updateInventory();
             } else {
                 p.sendMessage(Data.Prefix + ChatColor.GREEN + "Team 1 " + ChatColor.RED + "ist bereits voll");
+                p.updateInventory();
             }
+            p.updateInventory();
             Items.getTeamItem(p);
             p.closeInventory();
         }
@@ -100,15 +107,20 @@ public class InteractListener implements Listener{
         if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GOLD + "Team 2")) {
             if(Data.teamOrange.contains(p)) {
                 p.sendMessage(Data.Prefix + ChatColor.RED + "Du bist schon in " + ChatColor.GOLD + "Team 2");
+                p.updateInventory();
             } else if(Data.teamOrange.size() < Data.maxPlayer/2) {
                 if(Data.teamGreen.contains(p)) {
                     Data.teamGreen.remove(p);
+                    p.updateInventory();
                 }
                 Data.teamOrange.add(p);
                 p.sendMessage(Data.Prefix + ChatColor.BLUE + "Du bist nun in " + ChatColor.GOLD + "Team 2");
+                p.updateInventory();
             } else {
                 p.sendMessage(Data.Prefix + ChatColor.GOLD + "Team 2 " + ChatColor.RED + "ist bereits voll");
+                p.updateInventory();
             }
+            p.updateInventory();
             Items.getTeamItem(p);
             p.closeInventory();
         }
