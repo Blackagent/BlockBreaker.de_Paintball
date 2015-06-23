@@ -68,8 +68,14 @@ public class TeamInventory {
         }
 
         meta2.setLore(lore2);
-        team2.setItemMeta(meta2);//TODO: Effekte
+        team2.setItemMeta(meta2);
 
+        //Item für leere Slots:
+        ItemStack glass = new ItemStack(Material.STAINED_GLASS);
+        ItemMeta metaGlass = glass.getItemMeta();
+        metaGlass.setDisplayName(" ");
+        metaGlass.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        glass.setItemMeta(metaGlass);
 
         //Inventar öffnen + "Reinwandern" der Items:
         final Inventory finalInv = inv;
@@ -79,32 +85,56 @@ public class TeamInventory {
             public void run() {
                 switch (teamInventoryCounter) {
                     case 8:
+                        finalInv.setItem(0, glass);
+                        finalInv.setItem(1, glass);
+                        finalInv.setItem(2, glass);
+                        finalInv.setItem(3, glass);
+                        finalInv.setItem(4, glass);
+                        finalInv.setItem(5, glass);
+                        finalInv.setItem(6, glass);
+                        finalInv.setItem(7, glass);
+                        finalInv.setItem(8, glass);
                         p.openInventory(finalInv);
                         p.updateInventory();
                         break;
                     case 7:
                         finalInv.setItem(0, team1);
+                        finalInv.setItem(1, glass);
+                        finalInv.setItem(2, glass);
+                        finalInv.setItem(3, glass);
+                        finalInv.setItem(4, glass);
+                        finalInv.setItem(5, glass);
+                        finalInv.setItem(6, glass);
+                        finalInv.setItem(7, glass);
                         finalInv.setItem(8, team2);
                         p.updateInventory();
                         break;
                     case 6:
                         finalInv.setItem(1, team1);
+                        finalInv.setItem(2, glass);
+                        finalInv.setItem(3, glass);
+                        finalInv.setItem(4, glass);
+                        finalInv.setItem(5, glass);
+                        finalInv.setItem(6, glass);
                         finalInv.setItem(7, team2);
                         p.updateInventory();
                         break;
                     case 5:
                         finalInv.setItem(2, team1);
+                        finalInv.setItem(3, glass);
+                        finalInv.setItem(4, glass);
+                        finalInv.setItem(5, glass);
                         finalInv.setItem(6, team2);
                         p.updateInventory();
                         break;
                     case 4:
-                        finalInv.setItem(0, null);
-                        finalInv.setItem(8, null);
+                        finalInv.setItem(0, glass);
+                        finalInv.setItem(8, glass);
                         p.updateInventory();
                         break;
                     case 3:
-                        finalInv.setItem(1, null);
-                        finalInv.setItem(7, null);
+                        finalInv.setItem(1, glass);
+                        finalInv.setItem(7, glass);
                         p.updateInventory();
                         break;
                     case 2:

@@ -76,10 +76,7 @@ public class InteractListener implements Listener{
     @EventHandler
     public void onClick(InventoryClickEvent e) {
         Player p = (Player) e.getWhoClicked();
-
-        if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(" ")) {
-            e.setCancelled(true);
-        }
+        e.setCancelled(true);
 
         //Grünes Team betreten: TODO: NullPointer :/
         if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GREEN + "Team 1")) {
