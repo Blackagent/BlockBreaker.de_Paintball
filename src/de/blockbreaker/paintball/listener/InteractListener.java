@@ -125,5 +125,9 @@ public class InteractListener implements Listener{
             Items.getTeamItem(p);
             p.closeInventory();
         }
+
+        if(e.getCurrentItem() == null) {
+            e.setCancelled(true);
+        }
     }
 }
