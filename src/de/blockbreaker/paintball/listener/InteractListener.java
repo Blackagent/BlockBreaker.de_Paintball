@@ -80,7 +80,7 @@ public class InteractListener implements Listener{
         Player p = (Player) e.getWhoClicked();
         e.setCancelled(true);
 
-        //Grünes Team betreten: TODO: NullPointer :/
+        //Grünes Team betreten:
         if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GREEN + "Team 1")) {
             if(Data.teamGreen.contains(p)) {
                 p.sendMessage(Data.Prefix + ChatColor.RED + "Du bist schon in " + ChatColor.GREEN + "Team 1");
