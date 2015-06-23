@@ -22,13 +22,13 @@ public class InteractListener implements Listener{
 
     @EventHandler
     public void onInteract(PlayerInteractEvent e) {
-        e.setCancelled(true);
         Player p = e.getPlayer();
 
         if(e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
 
             //von Spielern zu Zuschauern wechseln
             if(e.getMaterial().equals(Material.BLAZE_ROD)) {
+                e.setCancelled(true);
                 if(Data.players.size() > 4) {
                     Data.players.remove(p);
                     if(Data.teamGreen.contains(p)) {
@@ -46,6 +46,7 @@ public class InteractListener implements Listener{
 
             //Von Zuschauern zu Spielern wechseln
             if(e.getMaterial().equals(Material.STICK)) {
+                e.setCancelled(true);
                 if(Data.players.size() < Data.maxPlayer) {
                     Data.players.add(p);
                     StandartInventory.getStandardInventory(p);
@@ -59,6 +60,7 @@ public class InteractListener implements Listener{
 
             //Mit dem Leave Item in die Lobby springen
             if(e.getMaterial().equals(Material.EMERALD)) {
+                e.setCancelled(true);
                 if(Data.players.contains(p)) {
                     Data.players.remove(p);
                 }
@@ -67,6 +69,7 @@ public class InteractListener implements Listener{
 
             //Team Inventar öffnen
             if(e.getMaterial().equals(Material.SNOW_BALL)) {
+                e.setCancelled(true);
                 e.setCancelled(true);
                 TeamInventory.open(p);
                 p.updateInventory();
