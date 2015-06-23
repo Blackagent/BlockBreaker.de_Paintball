@@ -40,7 +40,7 @@ public class TeamInventory {
         } else {
             lore1.add(ChatColor.BLUE + "Linksklick, um " + ChatColor.GREEN + "Team 1 " + ChatColor.BLUE + "zu betreten");
         }
-        for (int i = 0; i < Data.teamGreen.size()-1; i++) {
+        for (int i = 0; i < Data.teamGreen.size(); i++) {
             lore1.add(ChatColor.YELLOW + Data.teamGreen.get(i).getDisplayName());
         }
 
@@ -63,7 +63,7 @@ public class TeamInventory {
         } else {
             lore2.add(ChatColor.BLUE + "Linksklick, um " + ChatColor.GOLD + "Team 2 " + ChatColor.BLUE + "zu betreten");
         }
-        for (int i = 0; i < Data.teamOrange.size()-1; i++) {
+        for (int i = 0; i < Data.teamOrange.size(); i++) {
             lore2.add(ChatColor.YELLOW + Data.teamOrange.get(i).getDisplayName());
         }
 

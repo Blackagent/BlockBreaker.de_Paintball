@@ -70,6 +70,7 @@ public class InteractListener implements Listener{
             //Team Inventar öffnen
             if(e.getMaterial().equals(Material.SNOW_BALL)) {
                 TeamInventory.open(p);
+                Items.getTeamItem(p);
                 p.updateInventory();
             }
         }
@@ -82,9 +83,9 @@ public class InteractListener implements Listener{
         e.setCancelled(true);
 
         //Grünes Team betreten:
-        if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GREEN + "Team 1")) {
+       if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GREEN + "Team 1")) {
             if(Data.teamGreen.contains(p)) {
-                p.sendMessage(Data.Prefix + ChatColor.RED + "Du bist schon in " + ChatColor.GREEN + "Team 1");
+                p.sendMessage(Data.Prefix + ChatColor.RED + "Du bist schon Mitglied in " + ChatColor.GREEN + "Team 1");
                 p.updateInventory();
             } else if(Data.teamGreen.size() < Data.maxPlayer/2) {
                 if(Data.teamOrange.contains(p)) {
@@ -92,7 +93,7 @@ public class InteractListener implements Listener{
                     p.updateInventory();
                 }
                 Data.teamGreen.add(p);
-                p.sendMessage(Data.Prefix + ChatColor.BLUE + "Du bist nun in " + ChatColor.GREEN + "Team 1");
+                p.sendMessage(Data.Prefix + ChatColor.BLUE + "Du bist nun Mitglied in " + ChatColor.GREEN + "Team 1");
                 p.updateInventory();
             } else {
                 p.sendMessage(Data.Prefix + ChatColor.GREEN + "Team 1 " + ChatColor.RED + "ist bereits voll");
@@ -106,7 +107,7 @@ public class InteractListener implements Listener{
         //Oranges Team betreten:
         if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GOLD + "Team 2")) {
             if(Data.teamOrange.contains(p)) {
-                p.sendMessage(Data.Prefix + ChatColor.RED + "Du bist schon in " + ChatColor.GOLD + "Team 2");
+                p.sendMessage(Data.Prefix + ChatColor.RED + "Du bist schon Mitglied in " + ChatColor.GOLD + "Team 2");
                 p.updateInventory();
             } else if(Data.teamOrange.size() < Data.maxPlayer/2) {
                 if(Data.teamGreen.contains(p)) {
@@ -114,7 +115,7 @@ public class InteractListener implements Listener{
                     p.updateInventory();
                 }
                 Data.teamOrange.add(p);
-                p.sendMessage(Data.Prefix + ChatColor.BLUE + "Du bist nun in " + ChatColor.GOLD + "Team 2");
+                p.sendMessage(Data.Prefix + ChatColor.BLUE + "Du bist nun Mitglied in " + ChatColor.GOLD + "Team 2");
                 p.updateInventory();
             } else {
                 p.sendMessage(Data.Prefix + ChatColor.GOLD + "Team 2 " + ChatColor.RED + "ist bereits voll");
