@@ -15,7 +15,7 @@ public class Countdown{
         if(GameState.isState(GameState.IN_LOBBY)) {
             if(Bukkit.getOnlinePlayers().size() == 4) {
 
-                 Paintball.getInstance().countdown = Bukkit.getScheduler().scheduleAsyncRepeatingTask(Paintball.getInstance(), new Runnable() {
+                 Paintball.getInstance().countdownID = Bukkit.getScheduler().scheduleAsyncRepeatingTask(Paintball.getInstance(), new Runnable() {
                     @Override
                     public void run() {
                         //Standard durchlauf:
@@ -36,7 +36,7 @@ public class Countdown{
                             GameState.setState(GameState.IN_GAME);
                             //inv getten wichtig nach ingam ^^^^^!!!
                             //tpen
-                            Bukkit.getScheduler().cancelTask(Paintball.getInstance().countdown);
+                            Bukkit.getScheduler().cancelTask(Paintball.getInstance().countdownID);
                         }
 
                         Bukkit.getOnlinePlayers().forEach(player -> player.setLevel(Data.counter));

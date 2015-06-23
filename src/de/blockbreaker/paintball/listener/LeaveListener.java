@@ -22,8 +22,8 @@ public class LeaveListener implements Listener {
         //Countdown canceln wenn zu wenig Spieler auf dem Server sind:
         if(Bukkit.getOnlinePlayers().size() < 4) {
             Bukkit.getOnlinePlayers().forEach(player -> player.setExp(0));
-            Bukkit.getOnlinePlayers().forEach(player -> player.setLevel(1));//TODO: Lever wird nicht reesetted
-            Bukkit.getScheduler().cancelTask(Paintball.getInstance().countdown);
+            Bukkit.getOnlinePlayers().forEach(player -> player.setLevel(1));
+            Bukkit.getScheduler().cancelTask(Paintball.getInstance().countdownID);
         }
 
         //TODO: von listen removen

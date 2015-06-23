@@ -1,6 +1,8 @@
 package de.blockbreaker.paintball.inventory;
 
+import de.blockbreaker.paintball.Paintball;
 import de.blockbreaker.paintball.data.Data;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -18,10 +20,8 @@ import java.util.ArrayList;
 public class TeamInventory {
 
     //Inventar der Teamauswahl:
-
     public static void open(Player p) {
         Inventory inv = null;
-
         inv = p.getServer().createInventory(null, 9, ChatColor.BLUE + "Teamauswahl");
 
         //Item für Team 1:
@@ -71,11 +71,54 @@ public class TeamInventory {
         team2.setItemMeta(meta2);//TODO: Effekte
 
 
-        //Items ins Inventar einfügen:
-        inv.setItem(2, team1);
-        inv.setItem(6, team2);
-
-        p.openInventory(inv);
-        p.updateInventory();//TODO: updaten for each weil wegen blinken
+        //Inventar öffnen + "Reinwandern" der Items:
+        final Inventory finalInv = inv;
+        Paintball.getInstance().teamInventoryID = Bukkit.getScheduler().scheduleAsyncRepeatingTask(Paintball.getInstance(), new Runnable() {
+            int teamInventoryCounter = 8;
+            @Override
+            public void run() {
+                switch (teamInventoryCounter) {
+                    case 8:
+                        p.openInventory(finalInv);
+                        p.updateInventory();
+                        break;
+                    case 7:
+                        finalInv.setItem(0, team1);
+                        finalInv.setItem(8, team2);
+                        p.updateInventory();
+                        break;
+                    case 6:
+                        finalInv.setItem(1, team1);
+                        finalInv.setItem(7, team2);
+                        p.updateInventory();
+                        break;
+                    case 5:
+                        finalInv.setItem(2, team1);
+                        finalInv.setItem(6, team2);
+                        p.updateInventory();
+                        break;
+                    case 4:
+                        finalInv.setItem(0, null);
+                        finalInv.setItem(8, null);
+                        p.updateInventory();
+                        break;
+                    case 3:
+                        finalInv.setItem(1, null);
+                        finalInv.setItem(7, null);
+                        p.updateInventory();
+                        break;
+                    case 2:
+                        p.updateInventory();
+                        break;
+                    case 1:
+                        p.updateInventory();
+                        Bukkit.getScheduler().cancelTask(Paintball.getInstance().teamInventoryID);
+                        break;
+                    default:
+                        break;
+                }
+                teamInventoryCounter--;
+            }
+        }, 0, 1);
     }
 }

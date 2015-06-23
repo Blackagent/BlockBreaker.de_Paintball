@@ -32,8 +32,6 @@ public class JoinListener implements Listener {
 
         //In der Lobby:
         if(GameState.isState(GameState.IN_LOBBY)) {
-            p.setGameMode(GameMode.ADVENTURE);
-
             Bukkit.broadcastMessage(Data.Prefix + ChatColor.GREEN + "--> " + ChatColor.YELLOW + e.getPlayer().getName() + ChatColor.AQUA + " hat das Spiel " + ChatColor.GREEN + "betreten");
             if(Bukkit.getOnlinePlayers().size() < 4) {
                 Bukkit.broadcastMessage(Data.Prefix + ChatColor.DARK_AQUA + "Es wird auf " + ChatColor.GREEN + "weitere Spieler " + ChatColor.DARK_AQUA + "gewartet");

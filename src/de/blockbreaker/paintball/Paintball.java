@@ -23,7 +23,8 @@ public class Paintball extends JavaPlugin{
     private static Paintball instance;
 
     //TaskID´s:
-    public int countdown;
+    public int countdownID;
+    public int teamInventoryID;
 
 
     public void onEnable() {
