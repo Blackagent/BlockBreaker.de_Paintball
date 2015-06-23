@@ -21,6 +21,7 @@ public class InteractListener implements Listener{
 
     @EventHandler
     public void onInteract(PlayerInteractEvent e) {
+        e.setCancelled(true);
         Player p = e.getPlayer();
 
         if(e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
