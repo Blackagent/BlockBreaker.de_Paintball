@@ -2,6 +2,7 @@ package de.blockbreaker.paintball.listener;
 
 import de.blockbreaker.paintball.api.PlayerAPI;
 import de.blockbreaker.paintball.data.Data;
+import de.blockbreaker.paintball.inventory.Items;
 import de.blockbreaker.paintball.inventory.StandartInventory;
 import de.blockbreaker.paintball.inventory.TeamInventory;
 import org.bukkit.Bukkit;
@@ -92,6 +93,7 @@ public class InteractListener implements Listener{
             } else {
                 p.sendMessage(Data.Prefix + ChatColor.GREEN + "Team 1 " + ChatColor.RED + "ist bereits voll");
             }
+            Items.getTeamItem(p);
             p.closeInventory();
         }
 
@@ -108,6 +110,7 @@ public class InteractListener implements Listener{
             } else {
                 p.sendMessage(Data.Prefix + ChatColor.GOLD + "Team 2 " + ChatColor.RED + "ist bereits voll");
             }
+            Items.getTeamItem(p);
             p.closeInventory();
         }
     }

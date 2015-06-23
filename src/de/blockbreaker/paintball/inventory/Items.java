@@ -88,6 +88,9 @@ public class Items {
 
         meta.setDisplayName(ChatColor.BLUE + "Teamauswahl");
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        if(!Data.teamGreen.contains(p) && !Data.teamOrange.contains(p)) {
+            meta.addEnchant(Enchantment.DURABILITY, 1, true);
+        }
 
         ArrayList<String> lore = new ArrayList<>();
         lore.add(ChatColor.BLUE + "Zuruück zur" + ChatColor.DARK_GREEN + "Lobby");
