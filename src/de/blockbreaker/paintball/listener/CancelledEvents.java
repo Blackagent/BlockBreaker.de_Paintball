@@ -49,8 +49,4 @@ public class CancelledEvents implements Listener{
     public void onAchievement(PlayerAchievementAwardedEvent e) {
         e.setCancelled(true);
     }
-
-
-    //TODO man kann noch items verschieben
-
 }

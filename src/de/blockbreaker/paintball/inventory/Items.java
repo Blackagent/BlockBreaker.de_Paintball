@@ -100,4 +100,29 @@ public class Items {
 
         p.getInventory().setItem(0, teamItem);
     }
+
+    public static void getTeamBoots(Player p) {
+        if(Data.teamGreen.contains(p)) {
+            p.sendMessage("Das ist eine fcking debu");
+            ItemStack boots = new ItemStack(Material.LEATHER_BOOTS, 1,(byte) 14);
+            ItemMeta meta = boots.getItemMeta();
+
+            meta.setDisplayName(ChatColor.GOLD + "Teamboots");
+            meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+            boots.setItemMeta(meta);
+
+            p.getInventory().setBoots(boots);
+
+        }
+        if(Data.teamOrange.contains(p)) {
+            ItemStack boots = new ItemStack(Material.LEATHER_BOOTS, 1,(byte) 14);
+            ItemMeta meta = boots.getItemMeta();
+
+            meta.setDisplayName(ChatColor.GOLD + "Teamboots");
+            meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+            boots.setItemMeta(meta);
+
+            p.getInventory().setBoots(boots);
+        }
+    }
 }

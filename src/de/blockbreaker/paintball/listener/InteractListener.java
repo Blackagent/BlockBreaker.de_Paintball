@@ -14,9 +14,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.ItemStack;
-
-import java.util.EmptyStackException;
 
 /**
  * Created by Janne on 14.06.2015.
@@ -45,6 +42,7 @@ public class InteractListener implements Listener{
                 } else {
                     p.sendMessage(Data.Prefix + ChatColor.BLUE + "Du kannst leider nicht wechseln, da es sonst " + ChatColor.DARK_BLUE + "zu wenig Spieler" + ChatColor.BLUE + " gibt!");
                 }
+                p.getInventory().setBoots(null);
             }
 
             //Von Zuschauern zu Spielern wechseln
@@ -84,7 +82,7 @@ public class InteractListener implements Listener{
         e.setCancelled(true);
 
         //Grünes Team betreten:
-       if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GREEN + "Team 1")) {
+        if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GREEN + "Team 1")) {
             if(Data.teamGreen.contains(p)) {
                 p.sendMessage(Data.Prefix + ChatColor.RED + "Du bist schon Mitglied in " + ChatColor.GREEN + "Team 1");
                 p.updateInventory();
@@ -95,13 +93,14 @@ public class InteractListener implements Listener{
                 }
                 Data.teamGreen.add(p);
                 p.sendMessage(Data.Prefix + ChatColor.BLUE + "Du bist nun Mitglied in " + ChatColor.GREEN + "Team 1");
+                Items.getTeamBoots(p);
                 p.updateInventory();
             } else {
                 p.sendMessage(Data.Prefix + ChatColor.GREEN + "Team 1 " + ChatColor.RED + "ist bereits voll");
                 p.updateInventory();
             }
-            p.updateInventory();
             Items.getTeamItem(p);
+            p.updateInventory();
             p.closeInventory();
         }
 
@@ -117,13 +116,14 @@ public class InteractListener implements Listener{
                 }
                 Data.teamOrange.add(p);
                 p.sendMessage(Data.Prefix + ChatColor.BLUE + "Du bist nun Mitglied in " + ChatColor.GOLD + "Team 2");
+                Items.getTeamBoots(p);
                 p.updateInventory();
             } else {
                 p.sendMessage(Data.Prefix + ChatColor.GOLD + "Team 2 " + ChatColor.RED + "ist bereits voll");
                 p.updateInventory();
             }
-            p.updateInventory();
             Items.getTeamItem(p);
+            p.updateInventory();
             p.closeInventory();
         }
     }
