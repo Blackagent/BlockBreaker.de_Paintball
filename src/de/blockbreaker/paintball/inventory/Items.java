@@ -107,7 +107,7 @@ public class Items {
             LeatherArmorMeta meta = (LeatherArmorMeta) boots.getItemMeta();
             ColorAPI.setColor(boots, Color.LIME);
 
-            meta.setDisplayName(ChatColor.GREEN + "Teamboots");
+            meta.setDisplayName(ChatColor.GREEN + "Team-Boots");
             meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
             boots.setItemMeta(meta);
 
@@ -119,7 +119,7 @@ public class Items {
             ItemMeta meta = boots.getItemMeta();
             ColorAPI.setColor(boots, Color.ORANGE);
 
-            meta.setDisplayName(ChatColor.GOLD + "Teamboots");
+            meta.setDisplayName(ChatColor.GOLD + "Team-Boots");
             meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
             boots.setItemMeta(meta);
 
