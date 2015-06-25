@@ -1,13 +1,12 @@
 package de.blockbreaker.paintball.inventory;
 
 
-import de.blockbreaker.paintball.data.Config;
+import de.blockbreaker.paintball.api.ColorAPI;
 import de.blockbreaker.paintball.data.Data;
 import org.bukkit.ChatColor;
-import org.bukkit.DyeColor;
+import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
-import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -103,20 +102,21 @@ public class Items {
 
     public static void getTeamBoots(Player p) {
         if(Data.teamGreen.contains(p)) {
-            p.sendMessage("Das ist eine fcking debu");
-            ItemStack boots = new ItemStack(Material.LEATHER_BOOTS, 1,(byte) 14);
+            ItemStack boots = new ItemStack(Material.LEATHER_BOOTS);
             ItemMeta meta = boots.getItemMeta();
+            ColorAPI.setColor(boots, Color.LIME);
 
-            meta.setDisplayName(ChatColor.GOLD + "Teamboots");
+            meta.setDisplayName(ChatColor.GREEN + "Teamboots");
             meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
             boots.setItemMeta(meta);
 
             p.getInventory().setBoots(boots);
-
         }
+
         if(Data.teamOrange.contains(p)) {
-            ItemStack boots = new ItemStack(Material.LEATHER_BOOTS, 1,(byte) 14);
+            ItemStack boots = new ItemStack(Material.LEATHER_BOOTS);
             ItemMeta meta = boots.getItemMeta();
+            ColorAPI.setColor(boots, Color.ORANGE);
 
             meta.setDisplayName(ChatColor.GOLD + "Teamboots");
             meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
