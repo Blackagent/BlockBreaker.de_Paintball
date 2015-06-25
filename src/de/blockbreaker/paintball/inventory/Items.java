@@ -11,6 +11,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.LeatherArmorMeta;
 
 import java.util.ArrayList;
 
@@ -103,7 +104,7 @@ public class Items {
     public static void getTeamBoots(Player p) {
         if(Data.teamGreen.contains(p)) {
             ItemStack boots = new ItemStack(Material.LEATHER_BOOTS);
-            ItemMeta meta = boots.getItemMeta();
+            LeatherArmorMeta meta = (LeatherArmorMeta) boots.getItemMeta();
             ColorAPI.setColor(boots, Color.LIME);
 
             meta.setDisplayName(ChatColor.GREEN + "Teamboots");
